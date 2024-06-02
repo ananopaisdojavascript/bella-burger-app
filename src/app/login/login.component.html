@@ -1,11 +1,12 @@
 <h1>Bella Burger</h1>
 
-<form>
+<form [formGroup]="loginForm" [patchFormGroupValues]="loginFormValues$" (submit)="onSubmit()">
   <label for="email">E-mail</label>
   <input
     id="email"
     name="email"
     type="email"
+    formControlName="email"
     required
     aria-required="true"
   />
@@ -14,15 +15,17 @@
     id="password"
     name="password"
     type="password"
+    formControlName="password"
     required
     aria-required="true"
   />
-  <input type="checkbox" name="kitchen" id="kitchen" aria-required="true">Cozinha
-  <input type="checkbox" name="salon" id="salon" aria-required="true">Salão
+  <input type="checkbox" name="kitchen" id="kitchen" aria-required="true" formControlName="kitchen" (change)="onChange($event)">Cozinha
+  <input type="checkbox" name="salon" id="salon" aria-required="true" formControlName="salon" (change)="onChange($event)">Salão
 
   <div>
     <button type="submit">Entrar</button>
   </div>
 </form>
+
 
 <p>Se não tem cadastro, <button (click)="goToRegisterPage()">clique aqui</button></p>
