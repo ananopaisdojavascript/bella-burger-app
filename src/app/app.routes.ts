@@ -16,5 +16,10 @@ export const routes: Routes = [
   {
     path: "kitchen",
     loadComponent: () => import("./kitchen/kitchen.component").then(m => m.KitchenComponent)
+  },
+  {
+    path: "",
+    redirectTo: "/login",
+    pathMatch: "full"
   }
 ];
