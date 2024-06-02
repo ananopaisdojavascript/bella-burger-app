@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
@@ -11,6 +11,14 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   route = inject(Router);
+
+  loginForm = new FormGroup({
+    email: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+    salon: new FormControl(false, Validators.required),
+    kitchen: new FormControl(false, Validators.required)
+  })
+
   goToRegisterPage(): void {
     this.route.navigate(['/register']);
   }
