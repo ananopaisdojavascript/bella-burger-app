@@ -23,8 +23,8 @@ export class LoginComponent {
   loginForm = new FormGroup({
     email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
-    kitchen: new FormControl(false),
-    salon: new FormControl(false),
+    kitchen: new FormControl(false, Validators.required),
+    salon: new FormControl(false, Validators.required)
   })
 
   valueChange$ = this.loginForm.valueChanges.pipe(
