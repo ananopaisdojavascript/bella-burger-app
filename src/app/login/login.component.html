@@ -10,6 +10,10 @@
     required
     aria-required="true"
   />
+  <span 
+  *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched ||
+      isSubmitted)"
+  class="error">{{errorMessage}}</span>
   <label for="password">Senha</label>
   <input
     id="password"
@@ -19,6 +23,10 @@
     required
     aria-required="true"
   />
+  <span 
+  *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched ||
+      isSubmitted)"
+  class="error">{{errorMessage}}</span>
   <input type="checkbox" name="kitchen" id="kitchen" aria-required="true" formControlName="kitchen" (change)="onChange($event)">Cozinha
   <input type="checkbox" name="salon" id="salon" aria-required="true" formControlName="salon" (change)="onChange($event)">Salão
 

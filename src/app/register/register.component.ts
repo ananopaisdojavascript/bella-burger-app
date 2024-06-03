@@ -21,6 +21,10 @@ export class RegisterComponent {
 
   store = inject(Store<IRegisterFormState>);
 
+  isSubmitted = false;
+
+  errorMessage = "Esse campo é obrigatório.";
+
   registerForm = new FormGroup({
     name: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
@@ -51,8 +55,11 @@ export class RegisterComponent {
   onSubmit(): void {
     console.log(
       'submitted form',
-      this.registerForm.value
+      this.registerForm.value,
+      this.registerForm.valid,
+      this.registerForm.invalid
     );
+    this.isSubmitted = true;
     this.registerForm.setValue(initialRegisterFormState)
   }
 

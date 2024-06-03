@@ -18,7 +18,11 @@ import { PatchFormGroupValuesDirectiveModule } from '../utils/formValue.module';
 export class LoginComponent {
   route = inject(Router);
 
-  store = inject(Store<ILoginFormState>)
+  store = inject(Store<ILoginFormState>);
+
+  isSubmitted = false;
+
+  errorMessage = "Esse campo é obrigatório.";
 
   loginForm = new FormGroup({
     email: new FormControl('', Validators.required),
@@ -47,9 +51,12 @@ export class LoginComponent {
   onSubmit(): void {
     console.log(
       'submitted form',
-      this.loginForm.value
+      this.loginForm.value,
+      this.loginForm.valid,
+      this.loginForm.invalid
     );
-    this.loginForm.setValue(initialLoginFormState)
+    this.isSubmitted = true;
+    this.loginForm.setValue(initialLoginFormState);
   }
 
 
