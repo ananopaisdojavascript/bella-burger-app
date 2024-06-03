@@ -6,8 +6,8 @@ import { tap } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { login } from './state/action/loginForm.action';
-import { ILoginFormState } from './state/loginForm';
-import { PatchFormGroupValuesDirectiveModule } from './state/loginFormValue.module';
+import { ILoginFormState, initialLoginFormState } from './state/loginForm';
+import { PatchFormGroupValuesDirectiveModule } from '../utils/formValue.module';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -49,9 +49,7 @@ export class LoginComponent {
       'submitted form',
       this.loginForm.value
     );
-    this.loginForm.setValue(
-      { email: "", password: "", salon: false, kitchen: false}
-    )
+    this.loginForm.setValue(initialLoginFormState)
   }
 
 

@@ -1,6 +1,6 @@
 <h1>Bella Burger</h1>
 
-<form [formGroup]="registerForm">
+<form [formGroup]="registerForm" [patchFormGroupValues]="registerFormValues$" (submit)="onSubmit()">
   <label for="name">Nome</label>
   <input
     id="name"
@@ -46,8 +46,8 @@
     required
     aria-required="true"
   />
-  <input type="checkbox" name="kitchen" id="kitchen" formControlName="kitchen" aria-required="true">Cozinha
-  <input type="checkbox" name="salon" id="salon" formControlName="salon" aria-required="true">Salão
+  <input type="checkbox" name="kitchen" id="kitchen" formControlName="kitchen" aria-required="true" (change)="onChange($event)">Cozinha
+  <input type="checkbox" name="salon" id="salon" formControlName="salon" aria-required="true" (change)="onChange($event)">Salão
   <div>
     <button type="submit">Registrar</button>
   </div>
