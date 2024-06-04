@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Isabel Luiza Farias",
       "email": "isabel-farias89@reisereis.com.br",
       "confirm_email": "isabel-farias89@reisereis.com.br",
@@ -11,7 +11,7 @@
       "kitchen": true
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Tatiane Beatriz Nunes",
       "email": "tatiane_beatriz_nunes@gerdal.com.br",
       "confirm_email": "tatiane_beatriz_nunes@gerdal.com.br",
@@ -21,7 +21,7 @@
       "kitchen": true
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Adriana Carla Santos",
       "email": "adrianacarlasantos@editorazap.com.br",
       "confirm_email": "adrianacarlasantos@editorazap.com.br",
@@ -31,7 +31,7 @@
       "kitchen": true
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Carlos Giovanni Sebastião Galvão",
       "email": "carlosgiovannigalvao@tahoo.com.br",
       "confirm_email": "carlosgiovannigalvao@tahoo.com.br",
@@ -41,7 +41,7 @@
       "kitchen": true
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Carlos Bryan Levi Martins",
       "email": "carlos-martins86@metroquali.com.br",
       "confirm_email": "carlos-martins86@metroquali.com.br",
@@ -51,7 +51,7 @@
       "kitchen": true
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Noah João Eduardo Almeida",
       "email": "noah-almeida92@gerdal.com.br",
       "confirm_email": "noah-almeida92@gerdal.com.br",
@@ -61,7 +61,7 @@
       "kitchen": false
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Isadora Mirella Fernanda da Conceição",
       "email": "isadora_daconceicao@willianareiaepedra.com.br",
       "confirm_email": "isadora_daconceicao@willianareiaepedra.com.br",
@@ -71,7 +71,7 @@
       "kitchen": false
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Helena Sebastiana Joana Brito",
       "email": "helena.sebastiana.brito@andradecamara.com.br",
       "confirm_email": "helena.sebastiana.brito@andradecamara.com.br",
@@ -81,7 +81,7 @@
       "kitchen": false
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Igor Ruan Almeida",
       "email": "igor.ruan.almeida@zf.com",
       "confirm_email": "igor.ruan.almeida@zf.com",
@@ -91,7 +91,7 @@
       "kitchen": false
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Nelson Breno Galvão",
       "email": "nelson_galvao@whgames.com.br",
       "confirm_email": "nelson_galvao@whgames.com.br",
@@ -101,7 +101,7 @@
       "kitchen": false
     },
     {
-      "id": 11,
+      "id": "11",
       "name": "Stella Sophia Lara Ramos",
       "email": "stellasophiaramos@agaxtur.com.br",
       "confirm_email": "stellasophiaramos@agaxtur.com.br",
@@ -111,7 +111,7 @@
       "kitchen": false
     },
     {
-      "id": 12,
+      "id": "12",
       "name": "Manuel Enrico Figueiredo",
       "email": "manuel-figueiredo72@sabereler.com.br",
       "confirm_email": "manuel-figueiredo72@sabereler.com.br",
@@ -121,7 +121,7 @@
       "kitchen": false
     },
     {
-      "id": 13,
+      "id": "13",
       "name": "Diogo Davi Teixeira",
       "email": "diogodaviteixeira@superativacoop.com.br",
       "confirm_email": "diogodaviteixeira@superativacoop.com.br",
@@ -131,7 +131,7 @@
       "kitchen": false
     },
     {
-      "id": 14,
+      "id": "14",
       "name": "Danilo Paulo Tomás da Cruz",
       "email": "danilo_paulo_dacruz@supercarioca.com",
       "confirm_email": "danilo_paulo_dacruz@supercarioca.com",
@@ -141,7 +141,7 @@
       "kitchen": false
     },
     {
-      "id": 15,
+      "id": "15",
       "name": "Giovanni Martin Fogaça",
       "email": "giovanni_fogaca@rotauniformes.com.br",
       "confirm_email": "giovanni_fogaca@rotauniformes.com.br",
@@ -153,11 +153,193 @@
   ],
   "login": [
     {
-      "id": 1,
+      "id": "1",
       "email": "isabel-farias89@reisereis.com.br",
       "password": "LQK87nCyj6",
       "salon": false,
       "kitchen": true
+    },
+    {
+      "id": "ef54",
+      "email": "isabel-farias89@reisereis.com.br",
+      "password": "LQK87nCyj6",
+      "kitchen": true,
+      "salon": false
+    },
+    {
+      "id": "f5f7",
+      "email": "isabel-farias89@reisereis.com.br",
+      "password": "LQK87nCyj6",
+      "kitchen": true,
+      "salon": false
+    },
+    {
+      "id": "e41f",
+      "email": "email@email.com",
+      "password": "12345",
+      "kitchen": false,
+      "salon": true
+    },
+    {
+      "id": "4036",
+      "email": "isabel-farias89@reisereis.com.br",
+      "password": "LQK87nCyj6",
+      "kitchen": true,
+      "salon": false
+    },
+    {
+      "id": "6b11",
+      "email": "ana@email.com",
+      "password": "ana123",
+      "kitchen": true,
+      "salon": false
+    },
+    {
+      "id": "db0d",
+      "email": "ana@email.com",
+      "password": "ana123",
+      "kitchen": true,
+      "salon": false
+    },
+    {
+      "id": "ae7a",
+      "email": "ana@email.com",
+      "password": "ana123",
+      "kitchen": true,
+      "salon": false
+    },
+    {
+      "id": "2d7b",
+      "email": "isabel-farias89@reisereis.com.br",
+      "password": "LQK87nCyj6",
+      "kitchen": true,
+      "salon": false
+    },
+    {
+      "id": "b4ee",
+      "email": "ana@email.com",
+      "password": "an123",
+      "kitchen": true,
+      "salon": false
+    },
+    {
+      "id": "9352",
+      "email": "noah-almeida92@gerdal.com.br",
+      "password": "1jGtRGULsD",
+      "kitchen": false,
+      "salon": true
+    },
+    {
+      "id": "5a85",
+      "email": "noah-almeida92@gerdal.com.br",
+      "password": "1jGtRGULsD",
+      "kitchen": false,
+      "salon": true
+    },
+    {
+      "id": "5703",
+      "email": "noah-almeida92@gerdal.com.br",
+      "password": "1jGtRGULsD",
+      "kitchen": false,
+      "salon": true
+    },
+    {
+      "id": "3425",
+      "email": "noah-almeida92@gerdal.com.br",
+      "password": "1jGtRGULsD",
+      "kitchen": false,
+      "salon": true
+    },
+    {
+      "id": "2cf8",
+      "email": "carlos-martins86@metroquali.com.br",
+      "password": "GKWCPE01Ky",
+      "kitchen": true,
+      "salon": false
+    },
+    {
+      "id": "0a35",
+      "email": "isabel-farias89@reisereis.com.br",
+      "password": "LQK87nCyj6",
+      "kitchen": true,
+      "salon": false
+    },
+    {
+      "id": "403f",
+      "email": "teste1@email.com",
+      "password": "teste1",
+      "kitchen": true,
+      "salon": false
+    },
+    {
+      "id": "bc85",
+      "email": "teste1@email.com",
+      "password": "teste1",
+      "kitchen": true,
+      "salon": false
+    },
+    {
+      "id": "859d",
+      "email": "teste1@email.com",
+      "password": "teste1",
+      "kitchen": true,
+      "salon": false
+    },
+    {
+      "id": "c925",
+      "email": "teste1@email.com",
+      "password": "teste1",
+      "kitchen": true,
+      "salon": false
+    },
+    {
+      "id": "362b",
+      "email": "teste2@email.com",
+      "password": "teste2",
+      "kitchen": false,
+      "salon": true
+    },
+    {
+      "id": "c98a",
+      "email": "isabel-farias89@reisereis.com.br",
+      "password": "LQK87nCyj6",
+      "kitchen": true,
+      "salon": false
+    },
+    {
+      "id": "3836",
+      "email": "noah-almeida92@gerdal.com.br",
+      "password": "1jGtRGULsD",
+      "kitchen": false,
+      "salon": true
+    },
+    {
+      "id": "fd4c",
+      "email": "isabel-farias89@reisereis.com.br",
+      "password": "LQK87nCyj6",
+      "kitchen": true,
+      "salon": false
+    },
+    {
+      "id": "93b5",
+      "email": "noah-almeida92@gerdal.com.br",
+      "password": "1jGtRGULsD",
+      "kitchen": false,
+      "salon": true
+    },
+    {
+      "id": "df13",
+      "email": "tesete@email.com",
+      "password": "jçjkjklçjlçj",
+      "kitchen": true,
+      "salon": false
+    },
+    {
+      "id": "c0d9",
+      "email": "ana@email.com",
+      "password": "34u90q4u190",
+      "kitchen": false,
+      "salon": true
     }
   ]
 }
