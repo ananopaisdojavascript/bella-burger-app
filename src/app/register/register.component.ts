@@ -8,18 +8,22 @@ import { Router } from '@angular/router';
 import { register } from './state/action/registerForm.action';
 import { IRegisterFormState, initialRegisterFormState } from './state/registerForm';
 import { PatchFormGroupValuesDirectiveModule } from '../utils/formValue.module';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-register',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, PatchFormGroupValuesDirectiveModule],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.scss'
+  styleUrl: './register.component.scss',
+  providers: [AuthService]
 })
 export class RegisterComponent {
   route = inject(Router);
 
   store = inject(Store<IRegisterFormState>);
+
+  authService = inject(AuthService);
 
   isSubmitted = false;
 
@@ -53,12 +57,30 @@ export class RegisterComponent {
   }
 
   onSubmit(): void {
-    console.log(
-      'submitted form',
-      this.registerForm.value,
-      this.registerForm.valid,
-      this.registerForm.invalid
-    );
+    if (this.registerForm.valid) {
+      const registerFormValues: IRegisterFormState = {
+        name: this.registerForm.value.name!,
+        email: this.registerForm.value.email!,
+        confirmEmail: this.registerForm.value.confirmEmail!,
+        password:  this.registerForm.value.password!,
+        confirmPassword: this.registerForm.value.confirmPassword!,
+        salon: this.registerForm.value.salon!,
+        kitchen: this.registerForm.value.kitchen!
+      }
+      console.log(registerFormValues);
+      this.authService.createUser(registerFormValues).subscribe((_user: IRegisterFormState) => {
+        if (!this.authService.isTheUserRegistered()) {
+          this.route.navigate(['/register']);
+        } else {
+          if(registerFormValues.kitchen) {
+            this.route.navigate(['/kitchen']);
+          } else if(registerFormValues.salon) {
+            this.route.navigate(['/salon']);
+          }
+        }
+      })
+    }
+
     this.isSubmitted = true;
     this.registerForm.setValue(initialRegisterFormState)
   }

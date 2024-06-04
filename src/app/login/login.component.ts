@@ -21,7 +21,8 @@ const modules = [
   standalone: true,
   imports: [...modules],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
+  providers: [AuthService]
 })
 export class LoginComponent {
   route = inject(Router);
@@ -82,6 +83,7 @@ export class LoginComponent {
         console.log(data)
       });
     }
+    this.isSubmitted = true;
     this.loginForm.setValue(initialLoginFormState);
   }
 

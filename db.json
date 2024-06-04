@@ -149,6 +149,36 @@
       "confirm_password": "LyugYISyHs",
       "salon": true,
       "kitchen": false
+    },
+    {
+      "id": "0f84",
+      "name": "Ryan Francisco Cláudio Brito",
+      "email": "ryan_francisco_brito@c-a-m.com",
+      "confirmEmail": "ryan_francisco_brito@c-a-m.com",
+      "password": "Puz8qM8rbN",
+      "confirmPassword": "Puz8qM8rbN",
+      "salon": true,
+      "kitchen": false
+    },
+    {
+      "id": "e611",
+      "name": "Aline Emilly Nogueira",
+      "email": "aline_emilly_nogueira@consorciobcv.com.br",
+      "confirmEmail": "aline_emilly_nogueira@consorciobcv.com.br",
+      "password": "Xjq2HOJymy",
+      "confirmPassword": "Xjq2HOJymy",
+      "salon": false,
+      "kitchen": true
+    },
+    {
+      "id": "db66",
+      "name": "Sabrina Sophia Manuela Porto",
+      "email": "sabrina_sophia_porto@caesarbusiness.com.br",
+      "confirmEmail": "sabrina_sophia_porto@caesarbusiness.com.br",
+      "password": "KOhBff57lT",
+      "confirmPassword": "KOhBff57lT",
+      "salon": true,
+      "kitchen": false
     }
   ],
   "login": [
@@ -338,6 +368,20 @@
       "id": "c0d9",
       "email": "ana@email.com",
       "password": "34u90q4u190",
+      "kitchen": false,
+      "salon": true
+    },
+    {
+      "id": "19de",
+      "email": "aline_emilly_nogueira@consorciobcv.com.br",
+      "password": "Xjq2HOJymy",
+      "kitchen": true,
+      "salon": false
+    },
+    {
+      "id": "f4ff",
+      "email": "sabrina_sophia_porto@caesarbusiness.com.br",
+      "password": "KOhBff57lT",
       "kitchen": false,
       "salon": true
     }
