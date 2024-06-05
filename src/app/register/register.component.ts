@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule, Validators, UntypedFormGroup, UntypedFormControl } from '@angular/forms';
 import { using } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
@@ -29,14 +29,14 @@ export class RegisterComponent {
 
   errorMessage = "Esse campo é obrigatório.";
 
-  registerForm = new FormGroup({
-    name: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
-    confirmEmail: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
-    confirmPassword: new FormControl('', Validators.required),
-    salon: new FormControl(false, Validators.required),
-    kitchen: new FormControl(false, Validators.required)
+  registerForm = new UntypedFormGroup({
+    name: new UntypedFormControl('', Validators.required),
+    email: new UntypedFormControl('', Validators.required),
+    confirmEmail: new UntypedFormControl('', Validators.required),
+    password: new UntypedFormControl('', Validators.required),
+    confirmPassword: new UntypedFormControl('', Validators.required),
+    salon: new UntypedFormControl(false, Validators.required),
+    kitchen: new UntypedFormControl(false, Validators.required)
   })
 
   valueChange$ = this.registerForm.valueChanges.pipe(
@@ -57,32 +57,19 @@ export class RegisterComponent {
   }
 
   onSubmit(): void {
-    if (this.registerForm.valid) {
-      const registerFormValues: IRegisterFormState = {
-        name: this.registerForm.value.name!,
-        email: this.registerForm.value.email!,
-        confirmEmail: this.registerForm.value.confirmEmail!,
-        password:  this.registerForm.value.password!,
-        confirmPassword: this.registerForm.value.confirmPassword!,
-        salon: this.registerForm.value.salon!,
-        kitchen: this.registerForm.value.kitchen!
-      }
-      console.log(registerFormValues);
-      this.authService.createUser(registerFormValues).subscribe((_user: IRegisterFormState) => {
-        if (!this.authService.isTheUserRegistered()) {
-          this.route.navigate(['/register']);
-        } else {
-          if(registerFormValues.kitchen) {
-            this.route.navigate(['/kitchen']);
-          } else if(registerFormValues.salon) {
-            this.route.navigate(['/salon']);
-          }
-        }
-      })
-    }
+    if(this.registerForm.invalid) return;
 
-    this.isSubmitted = true;
-    this.registerForm.setValue(initialRegisterFormState)
+    this.authService.createUser(this.registerForm.value).subscribe((registerValue: IRegisterFormState) => {
+      registerValue = this.registerForm.value;
+
+      if(this.authService.isTheUserRegistered()) {
+        if (registerValue.kitchen) {
+          this.route.navigateByUrl('/kitchen')
+        } else if(registerValue.salon) {
+          this.route.navigateByUrl('/salon')
+        }
+      }
+    })
   }
 
   goToLoginPage(): void {
