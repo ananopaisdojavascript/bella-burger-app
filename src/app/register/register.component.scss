@@ -1,5 +1,50 @@
 @import "../../styles/mixins";
 
+.register {
+    @include general;
+
+    &__container {
+        @include container;
+    }
+
+    &__title img {
+        @include width;
+    }
+
+    &__form {
+        @include form;
+
+        label {
+            @include bold;
+        }
+
+        &-input {
+            @include input;
+        }
+
+        &-input-margin {
+            margin: 1rem 0;
+            @include bold;
+        }
+
+        &-checkbox {
+            margin-right: 5px;
+        }
+
+        &-button {
+            @include button;
+        }
+
+        &-link {
+            @include link;
+        }
+
+        &-button-link {
+            @include button-link;
+        }
+    }
+}
+
 .error {
     @include error-message;
 }

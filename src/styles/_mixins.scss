@@ -9,10 +9,22 @@ $colors: (
     "black": #000000,
 );
 
+@mixin for-tablet {
+    @media (max-width: 52.125rem) { @content; }
+  }
+
 @each $color, $i in $colors {
     .text-color-#{$color} {
         color: $i;
     }
+}
+
+@mixin width {
+    width: 100%;
+}
+
+@mixin width50 {
+    width: 50%;
 }
 
 @each $color, $i in $colors {
@@ -58,6 +70,7 @@ $colors: (
 }
 
 @mixin form {
+    @include width;
     margin-top: 1rem;
     border-radius: 5px;
     padding: 20px;
@@ -69,7 +82,7 @@ $colors: (
 }
 
 @mixin input {
-    width: 100%;
+    @include width;
     padding: 12px 20px;
     margin: 8px 0;
     display: block;
@@ -80,7 +93,7 @@ $colors: (
 }
 
 @mixin button {
-    width: 100%;
+    @include width;
     padding: 15px 0;
     border: none;
     background-color: #084b83;
@@ -108,7 +121,7 @@ $colors: (
 }
 
 @mixin general {
-    width: 100%;
+    @include width;
     min-height: 100vh;
 }
 

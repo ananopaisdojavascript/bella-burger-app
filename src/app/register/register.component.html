@@ -1,76 +1,106 @@
-<h1>Bella Burger</h1>
+<section class="register background-color-indigo-dye">
+  <div class="register__container">
+    <div class="register__title">
+      <img src="../../assets/logo.png" alt="Bella Burger">
+    </div>
+    
+    <form [formGroup]="registerForm" class="register__form background-color-white" [patchFormGroupValues]="registerFormValues$" (submit)="onSubmit()">
+      <div class="register__form-input-margin">
+        <label for="name">Nome</label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          formControlName="name"
+          class="register__form-input"
+          required
+          aria-required="true"
+        />
+        <span 
+        *ngIf="registerForm.get('name')?.invalid && (registerForm.get('name')?.dirty || registerForm.get('name')?.touched ||
+            isSubmitted)"
+        class="error">{{errorMessage}}</span>
+      </div>
 
-<form [formGroup]="registerForm" [patchFormGroupValues]="registerFormValues$" (submit)="onSubmit()">
-  <label for="name">Nome</label>
-  <input
-    id="name"
-    name="name"
-    type="text"
-    formControlName="name"
-    required
-    aria-required="true"
-  />
-  <span 
-  *ngIf="registerForm.get('name')?.invalid && (registerForm.get('name')?.dirty || registerForm.get('name')?.touched ||
-      isSubmitted)"
-  class="error">{{errorMessage}}</span>
-  <label for="email">E-mail</label>
-  <input
-    id="email"
-    name="email"
-    type="email"
-    formControlName="email"
-    required
-    aria-required="true"
-  />
-  <span 
-  *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched ||
-      isSubmitted)"
-  class="error">{{errorMessage}}</span>
-  <label for="confirm-email">Confirmar E-mail</label>
-  <input
-    id="confirm-email"
-    name="confirm-email"
-    type="email"
-    formControlName="confirmEmail"
-    required
-    aria-required="true"
-  />
-  <span 
-  *ngIf="registerForm.get('confirmEmail')?.invalid && (registerForm.get('confirmEmail')?.dirty || registerForm.get('confirmEmail')?.touched ||
-      isSubmitted)"
-  class="error">{{errorMessage}}</span>
-  <label for="password">Senha</label>
-  <input
-    id="password"
-    name="password"
-    type="password"
-    formControlName="password"
-    required
-    aria-required="true"
-  />
-  <span 
-  *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched ||
-      isSubmitted)"
-  class="error">{{errorMessage}}</span>
-  <label for="confirm-password">Confirmar Senha</label>
-  <input
-    id="confirm-password"
-    name="confirm-password"
-    type="password"
-    formControlName="confirmPassword"
-    required
-    aria-required="true"
-  />
-  <span 
-  *ngIf="registerForm.get('confirmPassword')?.invalid && (registerForm.get('confirmPassword')?.dirty || registerForm.get('confirmPassword')?.touched ||
-      isSubmitted)"
-  class="error">{{errorMessage}}</span>
-  <input type="checkbox" name="kitchen" id="kitchen" formControlName="kitchen" aria-required="true" (change)="onChange($event)">Cozinha
-  <input type="checkbox" name="salon" id="salon" formControlName="salon" aria-required="true" (change)="onChange($event)">Salão
-  <div>
-    <button type="submit">Registrar</button>
+      <div class="register__form-input-margin">
+        <label for="email">E-mail</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          formControlName="email"
+          class="register__form-input"
+          required
+          aria-required="true"
+        />
+        <span 
+        *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched ||
+            isSubmitted)"
+        class="error">{{errorMessage}}</span>
+      </div>
+
+      <div class="register__form-input-margin">
+        <label for="confirm-email">Confirmar E-mail</label>
+        <input
+          id="confirm-email"
+          name="confirm-email"
+          type="email"
+          formControlName="confirmEmail"
+          class="register__form-input"
+          required
+          aria-required="true"
+        />
+        <span 
+        *ngIf="registerForm.get('confirmEmail')?.invalid && (registerForm.get('confirmEmail')?.dirty || registerForm.get('confirmEmail')?.touched ||
+            isSubmitted)"
+        class="error">{{errorMessage}}</span>
+      </div>
+
+      <div class="register__form-input-margin">
+        <label for="password">Senha</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          formControlName="password"
+          class="register__form-input"
+          required
+          aria-required="true"
+        />
+        <span 
+        *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched ||
+            isSubmitted)"
+        class="error">{{errorMessage}}</span>
+      </div>
+
+      <div class="register__form-input-margin">
+        <label for="confirm-password">Confirmar Senha</label>
+        <input
+          id="confirm-password"
+          name="confirm-password"
+          type="password"
+          formControlName="confirmPassword"
+          class="register__form-input"
+          required
+          aria-required="true"
+        />
+        <span 
+        *ngIf="registerForm.get('confirmPassword')?.invalid && (registerForm.get('confirmPassword')?.dirty || registerForm.get('confirmPassword')?.touched ||
+            isSubmitted)"
+        class="error">{{errorMessage}}</span>
+      </div>
+
+      <div class="register__form-input-margin">
+        <input type="checkbox" name="kitchen" id="kitchen" formControlName="kitchen" class="register__form-checkbox" aria-required="true" (change)="onChange($event)">Cozinha
+        <input type="checkbox" name="salon" id="salon" formControlName="salon" class="register__form-checkbox" aria-required="true" (change)="onChange($event)">Salão
+      </div>
+      <div class="register__form-input-margin">
+        <button type="submit" [disabled]="!registerForm.valid" class="register__form-button">Registrar</button>
+      </div>
+      <p class="register__form-link">Se já tem cadastro, <button (click)="goToLoginPage()" class="register__form-button-link background-color-anti-flash-white-hover">clique aqui</button></p>
+    </form>
   </div>
-</form>
+  
+  
+</section>
 
-<p>Se já tem cadastro, <button (click)="goToLoginPage()">clique aqui</button></p>
