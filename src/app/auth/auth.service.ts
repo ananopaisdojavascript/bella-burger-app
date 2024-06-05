@@ -21,8 +21,8 @@ export class AuthService {
       }));
   }
 
-  createLogin(data: ILoginFormState): Observable<ILoginFormState> {
-    return this.httpClient.post<ILoginFormState>(`${url}/login`, data)
+  createLogin(data: ILoginFormState) {
+    return this.httpClient.post(`${url}/login`, data)
       .pipe(tap((result) => {
         localStorage.setItem('login', JSON.stringify(result));
       }));

@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, inject, OnInit } from '@angular/core';
+import { UntypedFormGroup, ReactiveFormsModule, Validators, UntypedFormControl } from '@angular/forms';
 import { using } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { Router, RouterModule } from '@angular/router';
 import { login } from './state/action/loginForm.action';
-import { ILoginFormState, initialLoginFormState } from './state/loginForm';
+import { ILoginFormState } from './state/loginForm';
 import { PatchFormGroupValuesDirectiveModule } from '../utils/formValue.module';
 import { AuthService } from '../auth/auth.service';
 
@@ -35,13 +35,13 @@ export class LoginComponent {
 
   errorMessage = "Esse campo é obrigatório.";
 
-  loginForm = new FormGroup({
-    email: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
-    kitchen: new FormControl(false, Validators.required),
-    salon: new FormControl(false, Validators.required)
-  })
-
+  loginForm = new UntypedFormGroup({
+    email: new UntypedFormControl('', Validators.required),
+    password: new UntypedFormControl('', Validators.required),
+    salon: new UntypedFormControl(false, Validators.required),
+    kitchen: new UntypedFormControl(false, Validators.required)
+});
+ 
   valueChange$ = this.loginForm.valueChanges.pipe(
     tap((value: any) => this.store.dispatch(login(value)))
   )
@@ -60,31 +60,18 @@ export class LoginComponent {
   }
 
   onSubmit(): void {
-    if (this.loginForm.valid) {
-      const loginFormValues: ILoginFormState = {
-        email: this.loginForm.value.email!,
-        password: this.loginForm.value.password!,
-        kitchen: this.loginForm.value.kitchen!,
-        salon: this.loginForm.value.salon!
-      };
-      console.log(loginFormValues);
-      this.authService.createLogin(loginFormValues).subscribe((data: ILoginFormState) => {
-
-        if (!this.authService.isLoggedIn()) {
-          this.route.navigate(['/login']);
-        } else {
-          if(loginFormValues.kitchen) {
-            this.route.navigate(['/kitchen']);
-          } else if(loginFormValues.salon) {
-            this.route.navigate(['/salon']);
-          }
+    if(this.loginForm.invalid) return;
+    
+    this.authService.createLogin(this.loginForm.value).subscribe((loginValue: Partial<ILoginFormState>) => {
+      loginValue= this.loginForm.value;
+      if(this.authService.isLoggedIn()) {
+        if(loginValue.salon) {
+          this.route.navigateByUrl('/salon')
+        } else if(loginValue.kitchen) {
+          this.route.navigateByUrl('/kitchen')
         }
-        
-        console.log(data)
-      });
-    }
-    this.isSubmitted = true;
-    this.loginForm.setValue(initialLoginFormState);
+      }
+    })
   }
 
 

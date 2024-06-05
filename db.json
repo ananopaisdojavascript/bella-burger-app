@@ -384,6 +384,104 @@
       "password": "KOhBff57lT",
       "kitchen": false,
       "salon": true
+    },
+    {
+      "id": "8355",
+      "email": "isabel-farias89@reisereis.com.br",
+      "password": "LQK87nCyj6",
+      "kitchen": true,
+      "salon": false
+    },
+    {
+      "id": "4266",
+      "email": "isabel-farias89@reisereis.com.br",
+      "password": "LQK87nCyj6",
+      "kitchen": true,
+      "salon": false
+    },
+    {
+      "id": "8aa9",
+      "email": "ana@email.com",
+      "password": "ana12345",
+      "kitchen": false,
+      "salon": true
+    },
+    {
+      "id": "c0bf",
+      "email": "ana@email.com",
+      "password": "ana12345",
+      "kitchen": false,
+      "salon": true
+    },
+    {
+      "id": "0df5",
+      "email": "ana@email.com",
+      "password": "ana12345",
+      "salon": false,
+      "kitchen": true
+    },
+    {
+      "id": "9c96",
+      "email": "ana@email.com",
+      "password": "ana12345",
+      "salon": true,
+      "kitchen": false
+    },
+    {
+      "id": "cff0",
+      "email": "ana@email.com",
+      "password": "ana12345",
+      "salon": true,
+      "kitchen": false
+    },
+    {
+      "id": "6ae1",
+      "email": "ana@email.com",
+      "password": "ana12345",
+      "salon": true,
+      "kitchen": false
+    },
+    {
+      "id": "5ead",
+      "email": "ana@email.com",
+      "password": "ana12345",
+      "salon": true,
+      "kitchen": false
+    },
+    {
+      "id": "0435",
+      "email": "ana@email.com",
+      "password": "ana12345",
+      "salon": true,
+      "kitchen": false
+    },
+    {
+      "id": "d6f6",
+      "email": "ana@email.com",
+      "password": "ana12345",
+      "salon": true,
+      "kitchen": false
+    },
+    {
+      "id": "5b76",
+      "email": "ana@email.com",
+      "password": "ana12345",
+      "salon": true,
+      "kitchen": false
+    },
+    {
+      "id": "9e53",
+      "email": "ana@email.com",
+      "password": "ana12345",
+      "salon": true,
+      "kitchen": false
+    },
+    {
+      "id": "a2f5",
+      "email": "isabel-farias89@reisereis.com.br",
+      "password": "LQK87nCyj6",
+      "salon": false,
+      "kitchen": true
     }
   ]
 }
