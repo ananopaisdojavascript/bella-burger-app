@@ -1,3 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+$colors: (
+    "indigo-dye": #084B83,
+    "aero": #42BFDD,
+    "mint-green": #BBE6E4,
+    "anti-flash-white": #F0F6F6,
+    "white": #ffffff,
+    "black": #000000,
+);
+
+@each $color, $i in $colors {
+    .text-color-#{$color} {
+        color: $i;
+    }
+}
+
+@each $color, $i in $colors {
+    .background-color-#{$color} {
+        background: $i;
+    }
+}
+
+@each $color, $i in $colors {
+    .text-color-#{$color}-hover:hover {
+        color: $i;
+        cursor: pointer;
+    }
+}
+
+@each $color, $i in $colors {
+    .background-color-#{$color}-hover:hover {
+        background-color: $i;
+        cursor: pointer;
+    }
+}
+
+@each $color, $i in $colors {
+    .border-#{$color} {
+        border: 1px solid $i;
+    }
+}
+
+@mixin borderRadius {
+    border-radius: 5px;
+}
+
 @mixin error-message {
     color: red;
+}
+
+@mixin raleway-font {
+    font-family: "Raleway", sans-serif;
+}
+
+@mixin playfair-font {
+    font-family: "Playfair Display", serif;
+}
+
+@mixin form {
+    margin-top: 1rem;
+    border-radius: 5px;
+    padding: 20px;
+    @include raleway-font();
+}
+
+@mixin bold {
+    font-weight: bold;
+}
+
+@mixin input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: block;
+    border: 1.5px solid #084B83;
+    background-color: #F0F6F6;
+    @include borderRadius();
+    box-sizing: border-box;
+}
+
+@mixin button {
+    width: 100%;
+    padding: 15px 0;
+    border: none;
+    background-color: #084b83;
+    color: white;
+    text-transform: uppercase;
+    @include raleway-font();
+    @include bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+@mixin link {
+    text-transform: uppercase;
+}
+
+@mixin button-link {
+    background: none;
+    padding: 10px 5px;
+    text-transform: uppercase;
+    @include bold;
+    @include raleway-font();
+    cursor: pointer;
+    border: none;
+    @include borderRadius();
+}
+
+@mixin general {
+    width: 100%;
+    min-height: 100vh;
+}
+
+@mixin container {
+    width: 70%;
+    margin: 0 auto;
+    padding: 10rem 0;
 }

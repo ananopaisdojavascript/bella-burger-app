@@ -1,39 +1,36 @@
-<h1>Bella Burger</h1>
+<section class="login background-color-indigo-dye">
+  <div class="login__container">
+    <div class="login__title">
+      <img src="../../assets/logo.png" alt="Bella Burger"/>
+    </div>
 
-<form [formGroup]="loginForm" [patchFormGroupValues]="loginFormValues$" (submit)="onSubmit()">
-  <label for="email">E-mail</label>
-  <input
-    id="email"
-    name="email"
-    type="email"
-    formControlName="email"
-    required
-    aria-required="true"
-  />
-  <span 
-  *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched ||
-      isSubmitted)"
-  class="error">{{errorMessage}}</span>
-  <label for="password">Senha</label>
-  <input
-    id="password"
-    name="password"
-    type="password"
-    formControlName="password"
-    required
-    aria-required="true"
-  />
-  <span 
-  *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched ||
-      isSubmitted)"
-  class="error">{{errorMessage}}</span>
-  <input type="checkbox" name="kitchen" id="kitchen" aria-required="true" formControlName="kitchen" (change)="onChange($event)">Cozinha
-  <input type="checkbox" name="salon" id="salon" aria-required="true" formControlName="salon" (change)="onChange($event)">Salão
+    <form [formGroup]="loginForm" class="login__form background-color-white" [patchFormGroupValues]="loginFormValues$" (submit)="onSubmit()">
+      <div class="login__form-input-margin">
+        <label for="email" class="text-color-indigo-dye">E-mail</label>
+        <input id="email" name="email" type="email" formControlName="email" class="login__form-input" required
+          aria-required="true" />
+        <span *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched ||
+              isSubmitted)" class="error">{{errorMessage}}</span>
+      </div>
+      <div class="login__form-input-margin">
+        <label for="password">Senha</label>
+        <input id="password" name="password" type="password" formControlName="password" class="login__form-input"
+          required aria-required="true" />
+        <span *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched ||
+              isSubmitted)" class="error">{{errorMessage}}</span>
+      </div>
+      <div class="login__form-input-margin">
+        <input type="checkbox" name="kitchen" id="kitchen" aria-required="true" class="login__form-checkbox" formControlName="kitchen"
+          (change)="onChange($event)">Cozinha
+        <input type="checkbox" name="salon" id="salon" aria-required="true" class="login__form-checkbox" formControlName="salon"
+          (change)="onChange($event)">Salão
+      </div>
 
-  <div>
-    <button type="submit">Entrar</button>
+      <div class="login__form-input-margin">
+        <button type="submit" [disabled]="!loginForm.valid" class="login__form-button">Entrar</button>
+      </div>
+      <p class="login__form-link text-color-black">Se não tem cadastro, <button (click)="goToRegisterPage()" class="login__form-button-link background-color-anti-flash-white-hover">clique aqui</button></p>
+    </form>
   </div>
-</form>
 
-
-<p>Se não tem cadastro, <button (click)="goToRegisterPage()">clique aqui</button></p>
+</section>
