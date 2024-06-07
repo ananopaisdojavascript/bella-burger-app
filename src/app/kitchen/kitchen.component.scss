@@ -1,0 +1,25 @@
+@import '../../styles/mixins';
+
+.kitchen {
+    @include general;
+
+    &__container {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    &__header {
+        padding: 1.5rem 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__title {
+        @include title;
+    }
+
+    &__exit-button {
+        @include button2;
+    }
+}
