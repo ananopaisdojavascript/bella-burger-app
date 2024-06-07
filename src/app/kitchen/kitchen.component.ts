@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-kitchen',
@@ -8,5 +9,9 @@ import { Component } from '@angular/core';
   styleUrl: './kitchen.component.scss'
 })
 export class KitchenComponent {
+  route = inject(Router)
 
+  goToLoginPage() {
+    this.route.navigate(['/login'])
+  }
 }
