@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from "@ngrx/store";
-import { ILoginFormState, initialLoginFormState } from "../loginForm";
+import { ILoginFormState, initialLoginFormState } from "../../../models/loginForm";
 import { login } from "../action/loginForm.action";
 
 const loginFormReducer = createReducer(

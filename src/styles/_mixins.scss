@@ -10,8 +10,10 @@ $colors: (
 );
 
 @mixin for-tablet {
-    @media (max-width: 52.125rem) { @content; }
-  }
+    @media (max-width: 52.125rem) {
+        @content;
+    }
+}
 
 @each $color, $i in $colors {
     .text-color-#{$color} {
@@ -129,4 +131,67 @@ $colors: (
     width: 70%;
     margin: 0 auto;
     padding: 10rem 0;
+}
+
+@mixin card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-gap: 2rem;
+    justify-content: center;
+    margin: 2rem;
+}
+
+@mixin button2 {
+    border: none;
+    padding: 0.5rem 1rem;
+    @include borderRadius;
+    color: #084B83;
+    font-weight: 700;
+    background-color: #F0F6F6;
+    text-transform: uppercase;
+    cursor: pointer;
+
+}
+
+@mixin modal-bg {
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Black w/ opacity */
+}
+
+@mixin modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+@mixin modal-padding {
+    padding: 2px 16px;
+    background-color: #ffffff;
+}
+
+@mixin title {
+    @include playfair-font;
+    font-style: italic;
+    color: #ffffff;
+    font-size: 2rem;
 }

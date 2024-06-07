@@ -1,1 +1,41 @@
-<p>salon works!</p>
+<section class="salon background-color-aero">
+    <div class="salon__container">
+        <div class="salon__header">
+            <button class="salon__exit-button">Sair</button>
+            <h1 class="salon__title">Salão</h1>
+            <button class="salon__orders-button">Pedidos Prontos</button>
+        </div>
+        <div class="salon__menu-buttons">
+            <button class="salon__menu-buttons-item">Todas as refeições</button>
+            <button class="salon__menu-buttons-item">Café da manhã</button>
+            <button class="salon__menu-buttons-item">Resto do dia</button>
+        </div>
+        <div class="salon__options">
+            @for(product of products; track product.id) {
+                <div class="card background-color-white">
+                    <div class="card__bg"></div>
+                    <div class="card__image">
+                        <img src={{product.imageUrl}} alt={{product.name}}>
+                    </div>
+                    <h1 class="card__name text-color-indigo-dye">{{product.name}}</h1>
+                    <p class="card__price text-color-indigo-dye">{{product.price | currency : 'BRL'}}</p>
+                    <button class="card__button background-color-indigo-dye text-color-white">Incluir</button>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+@if (isTheModalOpened) {
+<section class="modal">
+    <div class="modal__content">
+        <div class="modal__header">
+            <button class="modal__close" (click)="closeModal()">Fechar</button>
+        </div>
+        <div class="modal__body">
+        </div>
+        <div class="modal__footer">
+        </div>
+    </div>
+</section>
+}

@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { tap } from 'rxjs/operators';
-import { ILoginFormState } from '../login/state/loginForm';
+import { ILoginFormState } from '../models/loginForm';
 import { Observable } from 'rxjs';
-import { IRegisterFormState } from '../register/state/registerForm';
+import { IRegisterFormState } from '../models/registerForm';
 
 const url = "http://localhost:3000"
 

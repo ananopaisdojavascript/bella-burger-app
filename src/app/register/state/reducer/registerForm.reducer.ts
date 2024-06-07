@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from "@ngrx/store";
-import { IRegisterFormState, initialRegisterFormState } from "../registerForm";
+import { IRegisterFormState, initialRegisterFormState } from "../../../models/registerForm";
 import { register } from "../action/registerForm.action";
 
 const registerFormReducer = createReducer(

@@ -6,7 +6,7 @@ import { tap } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { register } from './state/action/registerForm.action';
-import { IRegisterFormState, initialRegisterFormState } from './state/registerForm';
+import { IRegisterFormState, initialRegisterFormState } from '../models/registerForm';
 import { PatchFormGroupValuesDirectiveModule } from '../utils/formValue.module';
 import { AuthService } from '../auth/auth.service';
 
