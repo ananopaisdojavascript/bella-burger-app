@@ -1,27 +1,28 @@
 <section class="salon background-color-aero">
     <div class="salon__container">
         <div class="salon__header">
-            <button class="salon__exit-button">Sair</button>
+            <button class="salon__exit-button" (click)="goToLoginPage()">Sair</button>
             <h1 class="salon__title">Salão</h1>
             <button class="salon__orders-button">Pedidos Prontos</button>
         </div>
         <div class="salon__menu-buttons">
-            <button class="salon__menu-buttons-item">Todas as refeições</button>
-            <button class="salon__menu-buttons-item">Café da manhã</button>
-            <button class="salon__menu-buttons-item">Resto do dia</button>
+            <button class="salon__menu-buttons-item" (click)="selectAll()">Todas as refeições</button>
+            @for(button of buttonArr; track button) {
+            <button class="salon__menu-buttons-item" (click)="selectProduct(button)">{{button}}</button>
+            }
         </div>
         <div class="salon__options">
-            @for(product of products; track product.id) {
+            <div class="salon__options-grid" *ngFor="let product of products |appProduct: category">
                 <div class="card background-color-white">
                     <div class="card__bg"></div>
                     <div class="card__image">
                         <img src={{product.imageUrl}} alt={{product.name}}>
                     </div>
-                    <h1 class="card__name text-color-indigo-dye">{{product.name}}</h1>
-                    <p class="card__price text-color-indigo-dye">{{product.price | currency : 'BRL'}}</p>
-                    <button class="card__button background-color-indigo-dye text-color-white">Incluir</button>
+                    <p class="card__name text-color-indigo-dye">{{product.name}}</p>
+                    <p class="card__price text-color-indigo-dye">{{product.price | appBrazilianReal}}</p>
+                    <button class="card__button background-color-indigo-dye text-color-white" (click)="openModal()">Incluir</button>
                 </div>
-            }
+            </div>
         </div>
     </div>
 </section>

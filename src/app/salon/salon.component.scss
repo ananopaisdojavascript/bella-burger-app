@@ -24,8 +24,9 @@
     }
 
     &__name {
-        font-size: 1.5rem;
         @include raleway-font;
+        text-transform: uppercase;
+        font-weight: 700;
     }
 
     &__price {
@@ -96,5 +97,9 @@
         &-item {
             @include button2;
         }
+    }
+
+    &__options {
+        @include card-grid;
     }
 }
