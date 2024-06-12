@@ -3,16 +3,26 @@
         <div class="salon__header">
             <button class="salon__exit-button" (click)="goToLoginPage()">Sair</button>
             <h1 class="salon__title">Salão</h1>
-            <button class="salon__orders-button">Pedidos Prontos</button>
+            <button class="salon__orders">
+                Pedidos Prontos
+                <span class="salon__orders-badge">0</span>
+            </button>
         </div>
         <div class="salon__menu-buttons">
+
+            <button class="salon__kitchen" (click)="openModal()">
+                <span>Pedidos</span>
+                <span class="salon__kitchen-badge">0</span>
+            </button>
+
             <button class="salon__menu-buttons-item" (click)="selectAll()">Todas as refeições</button>
             @for(button of buttonArr; track button) {
             <button class="salon__menu-buttons-item" (click)="selectProduct(button)">{{button}}</button>
             }
         </div>
+        <!--*ngFor="let product of products |appProduct: category"-->
         <div class="salon__options">
-            <div class="salon__options-grid" *ngFor="let product of products |appProduct: category">
+            <div class="salon__options-container" *ngFor="let product of products | appProduct: category">
                 <div class="card background-color-white">
                     <div class="card__bg"></div>
                     <div class="card__image">
@@ -20,23 +30,60 @@
                     </div>
                     <p class="card__name text-color-indigo-dye">{{product.name}}</p>
                     <p class="card__price text-color-indigo-dye">{{product.price | appBrazilianReal}}</p>
-                    <button class="card__button background-color-indigo-dye text-color-white" (click)="openModal()">Incluir</button>
+                    <button class="card__button background-color-indigo-dye text-color-white">Incluir</button>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-@if (isTheModalOpened) {
+<!-- @if (isTheModalOpened) {
+} -->
 <section class="modal">
     <div class="modal__content">
-        <div class="modal__header">
-            <button class="modal__close" (click)="closeModal()">Fechar</button>
+        <div class="modal__content-header">
+            <button class="modal__content-header-close">Fechar</button>
         </div>
-        <div class="modal__body">
+        <h1 class="modal__content-title text-color-indigo-dye">Detalhes do pedido</h1>
+        <form class="modal__content-form">
+            <div class="modal__content-form-item">
+                <label for="server" class="text-color-indigo-dye">Atendente</label>
+                <select name="server" id="server" class="modal__content-form-input">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="modal__content-form-item">
+                <label for="client" class="text-color-indigo-dye">Cliente</label>
+                <input type="text" class="modal__content-form-input">
+            </div>
+            <div class="modal__content-form-item">
+                <label for="table" class="text-color-indigo-dye">Número da mesa</label>
+                <select name="table" id="table" class="modal__content-form-input">
+                    <option value=""></option>
+                </select>
+            </div>
+        </form>
+
+        <div class="modal__content-product">
+            <p class="modal__content-product-id text-color-indigo-dye">1</p>
+            <img src="https://res.cloudinary.com/ananopaisdojavascript/image/upload/v1716126384/burger-queen-image/american-coffee_p65gkk.jpg"
+                alt="" class="modal__content-product-image">
+            <p class="text-color-indigo-dye">Café Americano</p>
+            <button class="modal__content-product-button">
+                <img src="../../assets/icons8-menos-50.png" alt="menos" class="modal__content-product-button-img">
+            </button>
+            <p class="text-color-indigo-dye">0</p>
+            <button class="modal__content-product-button">
+                <img src="../../assets/icons8-mais-50.png" alt="mais" class="modal__content-product-button-img">
+            </button>
+            <p class="text-color-indigo-dye">{{ 0 | appBrazilianReal }}</p>
+            <button class="modal__content-product-button">
+                <img src="../../assets/icons8-lixo-64.png" alt="lata de lixo" class="modal__content-product-button-img">
+            </button>
         </div>
-        <div class="modal__footer">
-        </div>
+
+        <h3 class="modal__content-total text-color-indigo-dye">Total: {{ 0 | appBrazilianReal }}</h3>
+
+        <button class="modal__content-kitchen-button">Enviar para a cozinha</button>
     </div>
 </section>
-}

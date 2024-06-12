@@ -6,6 +6,7 @@
     border-radius: 1rem;
     position: relative;
     overflow: hidden;
+    @include column-two;
 
     &__bg {
         background-image: url('../../assets/bg-card.jpg');
@@ -25,6 +26,7 @@
 
     &__name {
         @include raleway-font;
+        font-size: 0.95rem;
         text-transform: uppercase;
         font-weight: 700;
     }
@@ -49,25 +51,84 @@
 
 .modal {
     @include modal-bg;
+    @include raleway-font;
 
     &__content {
         @include modal-content;
-    }
 
-    &__close {
-        float: right;
-        @include button2;
-    }
+        &-header {
+            @include padding1;
 
-    &__header, &__body, &__footer {
-        @include modal-padding;
+            &-close {
+                float: right;
+                @include button2;
+            }
+        }
+
+        &-title {
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        &-form {
+            @include padding1;
+
+            &-item {
+                margin: 1rem 0;
+                @include bold;
+            }
+
+            &-input { 
+                @include input;
+            }
+        }
+
+        &-kitchen-button {
+            @include button2;
+            margin: 1rem;
+        }
+
+        &-total {
+            margin: 1rem 0;
+            font-size: 1.5rem;
+        }
+
+        &-product {
+            @include flex-container2;
+
+            &-id {
+                @include bold;
+            }
+
+            &-image {
+                width: 10%;
+                height: 10%;
+            }
+
+            &-button {
+                border: none;
+                background: none;
+                cursor: pointer;
+
+                &-img {
+                    width: 40%;
+                }
+            }
+        }
     }
 
     @keyframes animatetop {
-        from {top:-300px; opacity:0}
-        to {top:0; opacity:1}
-      }
-      
+        from {
+            top: -300px;
+            opacity: 0
+        }
+
+        to {
+            top: 0;
+            opacity: 1
+        }
+    }
+
 }
 
 .salon {
@@ -78,14 +139,23 @@
         margin: 0 auto;
     }
 
-    &__header, &__menu-buttons {
+    &__options {
+        @include flex-container;
+
+        &-container {
+            @include flex2;
+        }
+    }
+
+    &__header,
+    &__menu-buttons {
         padding: 1.5rem 0;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
 
-    &__exit-button, &__orders-button {
+    &__exit-button {
         @include button2;
     }
 
@@ -93,13 +163,26 @@
         @include title;
     }
 
+    &__orders {
+        @include notification;
+
+        &-badge {
+            @include badge;
+        }
+    }
+
+    &__kitchen {
+        @include notification;
+
+        &-badge {
+            @include badge;
+        }
+    }
+
     &__menu-buttons {
         &-item {
             @include button2;
         }
-    }
 
-    &__options {
-        @include card-grid;
     }
 }

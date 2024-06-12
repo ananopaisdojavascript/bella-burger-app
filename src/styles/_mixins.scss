@@ -143,7 +143,7 @@ $colors: (
 
 @mixin button2 {
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 1.2rem 1rem;
     @include borderRadius;
     color: #084B83;
     font-weight: 700;
@@ -151,6 +151,10 @@ $colors: (
     text-transform: uppercase;
     cursor: pointer;
 
+}
+
+@mixin padding1 {
+    padding: 1rem;
 }
 
 @mixin modal-bg {
@@ -176,7 +180,7 @@ $colors: (
     position: relative;
     background-color: #fefefe;
     margin: auto;
-    padding: 0;
+    padding: 1rem;
     border: 1px solid #888;
     width: 80%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -185,7 +189,7 @@ $colors: (
 }
 
 @mixin modal-padding {
-    padding: 2px 16px;
+    padding: 1rem;
     background-color: #ffffff;
 }
 
@@ -194,4 +198,48 @@ $colors: (
     font-style: italic;
     color: #ffffff;
     font-size: 2rem;
+}
+
+@mixin flex-container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    @media (min-width: 48rem) {
+        flex-direction: row;
+    }
+}
+
+@mixin flex-container2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin flex2 {
+    width: 50%;
+}
+
+@mixin column-two {
+    flex: 2;
+    margin: 0.5rem;
+}
+
+@mixin notification {
+    @include button2;
+    position: relative;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+@mixin badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background-color: #084B83;
+    color: white;
 }

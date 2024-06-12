@@ -5,11 +5,12 @@ import { IProduct } from '../models/product';
 import { BrazilianRealPipe } from '../utils/pipes/brazilianReal.pipe';
 import { ProductPipe } from '../utils/pipes/product.pipe';
 import { Router } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-salon',
   standalone: true,
-  imports: [CommonModule, BrazilianRealPipe, ProductPipe],
+  imports: [CommonModule, BrazilianRealPipe, ProductPipe, ReactiveFormsModule],
   templateUrl: './salon.component.html',
   styleUrl: './salon.component.scss',
   providers: [ProductService, {provide: LOCALE_ID, useValue: 'pt-br' }],
