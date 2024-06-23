@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { SharedService } from './services/shared.service';
+import { orderUrl } from './models/order';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +10,10 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  title = 'bella-burger-app';
+export class AppComponent implements OnInit {
+  sharedService = inject(SharedService)
+
+  ngOnInit(): void {
+    this.sharedService.fetchOrders(orderUrl)
+  }
 }

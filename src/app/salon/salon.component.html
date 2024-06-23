@@ -3,16 +3,16 @@
         <div class="salon__header">
             <button class="salon__exit-button" (click)="goToLoginPage()">Sair</button>
             <h1 class="salon__title">Salão</h1>
-            <button class="salon__orders">
+            <button class="salon__orders" (click)="goToOrders()">
                 Pedidos Prontos
-                <span class="salon__orders-badge">0</span>
+                <span class="salon__orders-badge">{{kitchenService.get2().length}}</span>
             </button>
         </div>
         <div class="salon__menu-buttons">
 
-            <button class="salon__kitchen" (click)="openModal()">
+            <button class="salon__kitchen" (click)="openModalWindow()">
                 <span>Pedidos</span>
-                <span class="salon__kitchen-badge">0</span>
+                <span class="salon__kitchen-badge">{{salonCartService.get().length}}</span>
             </button>
 
             <button class="salon__menu-buttons-item" (click)="selectAll()">Todas as refeições</button>
@@ -20,7 +20,7 @@
             <button class="salon__menu-buttons-item" (click)="selectProduct(button)">{{button}}</button>
             }
         </div>
-        <!--*ngFor="let product of products |appProduct: category"-->
+
         <div class="salon__options">
             <div class="salon__options-container" *ngFor="let product of products | appProduct: category">
                 <div class="card background-color-white">
@@ -30,60 +30,97 @@
                     </div>
                     <p class="card__name text-color-indigo-dye">{{product.name}}</p>
                     <p class="card__price text-color-indigo-dye">{{product.price | appBrazilianReal}}</p>
-                    <button class="card__button background-color-indigo-dye text-color-white">Incluir</button>
+                    <button class="card__button background-color-indigo-dye text-color-white"
+                        (click)="addtoCart(product)">Incluir</button>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- @if (isTheModalOpened) {
-} -->
+@if(isTheModalOpened) {
 <section class="modal">
     <div class="modal__content">
-        <div class="modal__content-header">
-            <button class="modal__content-header-close">Fechar</button>
+        <div class="modal__close">
+            <button (click)="closeModalWindow()">Fechar</button>
         </div>
-        <h1 class="modal__content-title text-color-indigo-dye">Detalhes do pedido</h1>
-        <form class="modal__content-form">
-            <div class="modal__content-form-item">
+        <h1 class="modal__title text-color-indigo-dye">Detalhes do pedido</h1>
+
+        <form class="modal__form" [formGroup]="orderForm">
+            <div class="modal__form-item">
                 <label for="server" class="text-color-indigo-dye">Atendente</label>
-                <select name="server" id="server" class="modal__content-form-input">
-                    <option value=""></option>
+                <select name="server" id="server" class="modal__form-input" formControlName="server">
+                    <option value="">Selecione um nome: </option>
+                    @for(user of users; track user) {
+                    <option value={{user.name}}>{{user.name}}</option>
+                    }
                 </select>
             </div>
-            <div class="modal__content-form-item">
+            <div class="modal__form-item">
                 <label for="client" class="text-color-indigo-dye">Cliente</label>
-                <input type="text" class="modal__content-form-input">
+                <input type="text" class="modal__form-input" formControlName="client">
             </div>
-            <div class="modal__content-form-item">
-                <label for="table" class="text-color-indigo-dye">Número da mesa</label>
-                <select name="table" id="table" class="modal__content-form-input">
-                    <option value=""></option>
+            <div class="modal__form-item">
+                <label for="table_number" class="text-color-indigo-dye">Número da mesa</label>
+                <select name="table_number" id="table_number" class="modal__form-input" formControlName="table_number" (change)="onChange($event)">
+                    <option value="">Selecione a mesa: </option>
+                    @for(table of tableArr; track table) {
+                    <option [ngValue]="table">{{table}}</option>
+                    }
                 </select>
             </div>
+            <div class="modal__form-item">
+                <label for="productName" class="text-color-indigo-dye">Nome do produto</label>
+                <select name="productName" id="productName" class="modal__form-input" formControlName="productName">
+                    <option value="">Selecione o produto </option>
+                    @for(product of products; track product) {
+                    <option value={{product.name}}>{{product.name}}</option>
+                    }
+                </select>
+            </div>
+            <div class="modal__form-item">
+                <label for="productId" class="text-color-indigo-dye">Id do produto</label>
+                <select name="productId" id="productId" class="modal__form-input" formControlName="productId" (change)="onChange($event)">
+                    <option value="">Selecione o id do produto: </option>
+                    @for(product of products; track product.productId) {
+                    <option [ngValue]="product.productId">{{product.productId}}</option>
+                    }
+                </select>
+            </div>
+            <div class="modal__form-item">
+                <label for="quantity" class="text-color-indigo-dye">Quantidade</label>
+                <input type="number" class="modal__form-input" name="quantity" id="quantity" min="1"
+                    formControlName="quantity">
+            </div>
+
+
         </form>
 
-        <div class="modal__content-product">
-            <p class="modal__content-product-id text-color-indigo-dye">1</p>
-            <img src="https://res.cloudinary.com/ananopaisdojavascript/image/upload/v1716126384/burger-queen-image/american-coffee_p65gkk.jpg"
-                alt="" class="modal__content-product-image">
-            <p class="text-color-indigo-dye">Café Americano</p>
-            <button class="modal__content-product-button">
-                <img src="../../assets/icons8-menos-50.png" alt="menos" class="modal__content-product-button-img">
-            </button>
-            <p class="text-color-indigo-dye">0</p>
-            <button class="modal__content-product-button">
-                <img src="../../assets/icons8-mais-50.png" alt="mais" class="modal__content-product-button-img">
-            </button>
-            <p class="text-color-indigo-dye">{{ 0 | appBrazilianReal }}</p>
-            <button class="modal__content-product-button">
-                <img src="../../assets/icons8-lixo-64.png" alt="lata de lixo" class="modal__content-product-button-img">
-            </button>
+        <div>
+            @for(item of salonCartService.get(); track item.productId) {
+            <div class="modal__product">
+                <p class="modal__product-id text-color-indigo-dye">{{item.productId}}</p>
+                <img src={{item.imageUrl}} alt={{item.name}} class="modal__product-image">
+                <p class="text-color-indigo-dye">{{item.name}}</p>
+                <button class="modal__product-button" (click)="decrement(item.productId)"
+                    [disabled]="item.quantity === 0">
+                    <img src="../../assets/icons8-menos-50.png" alt="menos" class="modal__product-button-img">
+                </button>
+                <p class="text-color-indigo-dye">{{item.quantity}}</p>
+                <button class="modal__product-button" (click)="increment(item.productId)">
+                    <img src="../../assets/icons8-mais-50.png" alt="mais" class="modal__product-button-img">
+                </button>
+                <p class="text-color-indigo-dye">{{ item.price | appBrazilianReal }}</p>
+                <button class="modal__product-button" (click)="deleteFromCart(item)">
+                    <img src="../../assets/icons8-lixo-64.png" alt="lata de lixo" class="modal__product-button-img">
+                </button>
+            </div>
+            }
         </div>
+        <h3 class="modal__content-total text-color-indigo-dye">Total: {{ salonCartService.getTotal() | appBrazilianReal
+            }}</h3>
 
-        <h3 class="modal__content-total text-color-indigo-dye">Total: {{ 0 | appBrazilianReal }}</h3>
-
-        <button class="modal__content-kitchen-button">Enviar para a cozinha</button>
+        <button class="modal__kitchen-button" (click)="addOrder()">Enviar para a cozinha</button>
     </div>
 </section>
+}

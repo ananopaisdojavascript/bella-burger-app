@@ -3,9 +3,32 @@
         <div class="kitchen__header">
             <button class="kitchen__exit-button" (click)="goToLoginPage()">Sair</button>
             <h1 class="kitchen__title">Cozinha</h1>
+            <button class="kitchen__reload-button" (click)="reload()">Recarregar Página</button>
         </div>
         <div class="kitchen__orders">
-            <div class="kitchen__orders-grid"></div>
+            <div class="kitchen__orders-grid">
+                <div class="card background-color-white kitchen__orders-column">
+                    <p class="card__name text-color-indigo-dye"></p>
+                    <p class="card__price text-color-indigo-dye">Id do produto:</p>
+                    <p class="card__price text-color-indigo-dye">Atendente:</p>
+                    <p class="card__price text-color-indigo-dye">Cliente:</p>
+                    <p class="card__price text-color-indigo-dye">Número da mesa:</p>
+                    <p class="card__price text-color-indigo-dye">Quantidade:</p>
+                    <button type="button" class="card__button background-color-indigo-dye text-color-white">Enviar Pedido</button>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
+@if(isTheModalOpened) {
+    <section class="modal">
+        <div class="modal__content">
+            <h1 class="modal__content-title text-color-indigo-dye">O pedido está pronto?</h1>
+            <div class="modal__content-container">
+                <button>Sim</button>
+                <button (click)="goBackToKitchen()">Não</button>
+            </div>
+        </div>
+    </section>
+}

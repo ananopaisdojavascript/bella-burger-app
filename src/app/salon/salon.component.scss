@@ -49,88 +49,6 @@
     }
 }
 
-.modal {
-    @include modal-bg;
-    @include raleway-font;
-
-    &__content {
-        @include modal-content;
-
-        &-header {
-            @include padding1;
-
-            &-close {
-                float: right;
-                @include button2;
-            }
-        }
-
-        &-title {
-            text-align: center;
-            text-transform: uppercase;
-        }
-
-        &-form {
-            @include padding1;
-
-            &-item {
-                margin: 1rem 0;
-                @include bold;
-            }
-
-            &-input { 
-                @include input;
-            }
-        }
-
-        &-kitchen-button {
-            @include button2;
-            margin: 1rem;
-        }
-
-        &-total {
-            margin: 1rem 0;
-            font-size: 1.5rem;
-        }
-
-        &-product {
-            @include flex-container2;
-
-            &-id {
-                @include bold;
-            }
-
-            &-image {
-                width: 10%;
-                height: 10%;
-            }
-
-            &-button {
-                border: none;
-                background: none;
-                cursor: pointer;
-
-                &-img {
-                    width: 40%;
-                }
-            }
-        }
-    }
-
-    @keyframes animatetop {
-        from {
-            top: -300px;
-            opacity: 0
-        }
-
-        to {
-            top: 0;
-            opacity: 1
-        }
-    }
-
-}
-
 .salon {
     @include general;
 
@@ -184,5 +102,69 @@
             @include button2;
         }
 
+    }
+}
+
+.modal {
+    @include modal-bg;
+    @include raleway-font;
+
+    &__content {
+        @include modal-content;
+    }
+
+    &__close {
+        margin: 1rem 0;
+        float: right;
+
+        button {
+            @include button2;
+        }
+    }
+
+    &__title {
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    &__form {
+        &-item {
+            margin: 1rem 0;
+            @include bold;
+        }
+
+        &-input {
+            @include input;
+        }
+    }
+
+    &__product {
+        @include flex-container2;
+        margin: 0.5rem 0;
+
+        &-id {
+            @include bold;
+        }
+
+        &-image {
+            width: 5%;
+            height: 5%;
+        }
+
+        &-button {
+            border: none;
+            background: none;
+            cursor: pointer;
+
+            &-img {
+                width: 40%;
+            }
+        }
+
+    }
+
+    &__kitchen-button {
+        margin: 1rem 0;
+        @include button2;
     }
 }

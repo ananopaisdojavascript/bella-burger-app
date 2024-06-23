@@ -135,7 +135,7 @@ $colors: (
 
 @mixin card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
     grid-gap: 2rem;
     justify-content: center;
     margin: 2rem;
@@ -182,10 +182,22 @@ $colors: (
     margin: auto;
     padding: 1rem;
     border: 1px solid #888;
-    width: 80%;
+    width: 90%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     animation-name: animatetop;
     animation-duration: 0.4s
+}
+
+@mixin modal-content2 {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 1rem;
+    border: 1px solid #888;
+    width: 60%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s 
 }
 
 @mixin modal-padding {

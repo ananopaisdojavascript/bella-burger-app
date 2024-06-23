@@ -19,7 +19,96 @@
         @include title;
     }
 
-    &__exit-button {
+    &__exit-button, &__reload-button {
         @include button2;
+    }
+
+
+    &__orders {
+        @include flex-container;
+
+        &-grid {
+            width: 50%;
+
+            @media (max-width: 48rem) {
+                width: 100%;
+            }
+        }
+    }
+
+}
+
+.card {
+    box-shadow: 0px 2px 8px 0px #ecf0f1;
+    text-align: center;
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+    @include column-two;
+
+    &__bg {
+        background-image: url('../../assets/bg-card.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: absolute;
+        height: 10rem;
+        width: 100%;
+    }
+
+    &__image img {
+        clip-path: circle(60px at center);
+        margin-top: 5.5rem;
+        width: 12rem;
+    }
+
+    &__name {
+        @include raleway-font;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+    &__price {
+        margin: 1rem 2rem;
+        font-size: 1rem;
+        @include raleway-font;
+        font-weight: bold;
+    }
+
+    &__button {
+        width: 100%;
+        border: none;
+        font-size: 1rem;
+        @include raleway-font;
+        font-weight: bold;
+        padding: 1rem;
+        cursor: pointer;
+    }
+}
+
+.modal {
+    @include modal-bg;
+
+    &__content {
+        @include modal-content2;
+
+        &-title {
+            text-align: center;
+            margin: 1rem 0;
+            text-transform: uppercase;
+            @include raleway-font;
+        }
+
+        &-container {
+            width: 70%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+
+            button {
+                @include button2;
+            }
+        }
     }
 }
