@@ -1,7 +1,7 @@
 export interface IOrder {
     id: number,
     client: string;
-    tableNumber: number;
+    table_number: number;
     server: string;
     productName: string;
     quantity: number,

@@ -6,15 +6,15 @@
             <button class="kitchen__reload-button" (click)="reload()">Recarregar Página</button>
         </div>
         <div class="kitchen__orders">
-            <div class="kitchen__orders-grid">
+            <div class="kitchen__orders-grid" *ngFor="let order of kitchenOrdersArr; let i = index">
                 <div class="card background-color-white kitchen__orders-column">
-                    <p class="card__name text-color-indigo-dye"></p>
-                    <p class="card__price text-color-indigo-dye">Id do produto:</p>
-                    <p class="card__price text-color-indigo-dye">Atendente:</p>
-                    <p class="card__price text-color-indigo-dye">Cliente:</p>
-                    <p class="card__price text-color-indigo-dye">Número da mesa:</p>
-                    <p class="card__price text-color-indigo-dye">Quantidade:</p>
-                    <button type="button" class="card__button background-color-indigo-dye text-color-white">Enviar Pedido</button>
+                    <p class="card__name text-color-indigo-dye">{{order.productName}}</p>
+                    <p class="card__price text-color-indigo-dye">Id do produto: {{order.productId}}</p>
+                    <p class="card__price text-color-indigo-dye">Atendente: {{order.server}}</p>
+                    <p class="card__price text-color-indigo-dye">Cliente: {{order.client}}</p>
+                    <p class="card__price text-color-indigo-dye">Número da mesa: {{order.table_number}}</p>
+                    <p class="card__price text-color-indigo-dye">Quantidade: {{order.quantity}}</p>
+                    <button type="button" class="card__button background-color-indigo-dye text-color-white" (click)="transferOrders(order)">Enviar Pedido</button>
                 </div>
             </div>
         </div>

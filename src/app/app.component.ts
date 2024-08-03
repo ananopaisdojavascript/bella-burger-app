@@ -14,6 +14,6 @@ export class AppComponent implements OnInit {
   sharedService = inject(SharedService)
 
   ngOnInit(): void {
-    this.sharedService.fetchOrders(orderUrl)
+    this.sharedService.fetchData(orderUrl)
   }
 }

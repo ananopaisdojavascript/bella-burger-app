@@ -7,7 +7,6 @@ import { ProductPipe } from '../utils/pipes/product.pipe';
 import { Router } from '@angular/router';
 import { UntypedFormGroup, ReactiveFormsModule, Validators, UntypedFormControl } from '@angular/forms';
 import { SalonCartService } from '../services/salon-cart.service';
-import { OrderService } from '../services/order.service';
 import { IOrder, tableNumberArray, orderUrl } from '../models/order';
 import { UserService } from '../services/user.service';
 import { IUser } from '../models/user';
@@ -58,9 +57,10 @@ export class SalonComponent implements OnInit {
   })
 
   addOrder() {
-    if(this.orderForm.valid) {
-      this.sharedService.addOrderToKitchenArray(orderUrl, this.orderForm.value)
+    if (this.orderForm.valid) {
+      this.sharedService.addDataToFirstArray(orderUrl, this.orderForm.value)
     }
+    this.closeModalWindow()
   }
 
   onChange(event: Event) {
@@ -111,7 +111,7 @@ export class SalonComponent implements OnInit {
 
   ngOnInit(): void{
     this.get();
-    // this.salonUsers();
+    this.salonUsers();
   }
 
   get(): void {
@@ -120,10 +120,10 @@ export class SalonComponent implements OnInit {
     });
   }
 
-  // salonUsers(): void {
-  //   this.userService.getUsers().subscribe((data) => {
-  //     this.users = data.filter(user => user.salon)
-  //   });
-  // }
+  salonUsers(): void {
+    this.userService.getUsers().subscribe((data) => {
+      this.users = data.filter(user => user.salon)
+    });
+  }
 
 }

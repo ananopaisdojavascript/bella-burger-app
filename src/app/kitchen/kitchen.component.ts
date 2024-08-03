@@ -18,7 +18,7 @@ export class KitchenComponent implements OnInit, OnDestroy {
 
   route = inject(Router)
 
-  ordersArr: IOrder[] = []
+  kitchenOrdersArr: IOrder[] = []
 
   orderService = inject(OrderService);
 
@@ -40,6 +40,18 @@ export class KitchenComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.getOrders()
+  }
+
+  getOrders() {
+    this.sharedService.firstArray.subscribe(data => {
+      this.kitchenOrdersArr = data
+    })
+  }
+
+  transferOrders(order: any): void {
+    this.sharedService.transferItemToSecondArray(order)
+    console.log(order)
   }
 
   reload() {
